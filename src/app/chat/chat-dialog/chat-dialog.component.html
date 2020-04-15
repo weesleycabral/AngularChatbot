@@ -1,0 +1,88 @@
+<!-- VERSAO ORIGINAL -->
+
+<!-- <h1>Sidney. O assistente PPA.</h1>
+
+<ng-container *ngFor="let message of messages | async">
+    <div class="message" [ngClass]="{'from': message.sentBy === 'bot', 'to': message.sentBy === 'user'}">
+        {{ message.content }}
+    </div>
+</ng-container>
+
+<label for="nameField">Sua mensagem</label>
+
+<input [(ngModel)]="formValue" (keyup.enter) = "sendMessage()" type="text"> <br>
+<button (click)="sendMessage()">Enviar</button> -->
+
+
+
+
+
+
+ <!-- VERSAO TESTE -->
+
+<!-- <nb-chat title="Conversando com o Bot">
+    <nb-chat-message *ngFor="let msg of messages" type="text" [message]="msg.text" [reply]="msg.reply"
+        [sender]="msg.sender" [date]="msg.date" [avatar]="msg.avatar">
+    </nb-chat-message>
+
+    <nb-chat-message *ngIf="loading"  nbSpinnerStatus="info" type="text" avatar="/assets/bot.jpeg"
+        message="...">
+    </nb-chat-message>
+
+    <nb-chat-form (send)="sendMessage()"></nb-chat-form>
+</nb-chat> -->
+
+<!-- <nb-chat title="Nebular Conversational UI">
+      <nb-chat-message *ngFor="let msg of messages"
+                       [type]="msg.type"
+                       [message]="msg.text"
+                       [reply]="msg.reply"
+                       [sender]="msg.user.name"
+                       [date]="msg.date"
+                       [files]="msg.files"
+                       [quote]="msg.quote"
+                       [latitude]="msg.latitude"
+                       [longitude]="msg.longitude"
+                       [avatar]="msg.user.avatar">
+  </nb-chat-message>
+
+  <nb-chat-form (send)="sendMessage($event)" [dropFiles]="true">
+  </nb-chat-form>
+</nb-chat> -->
+
+
+
+
+
+
+<div class="wrapper">
+    <div class="dialog">
+  
+      <mat-toolbar color="primary" class="toolbar mat-elevation-z3">
+        <img src="assets/logo.png" width="50px"> Sidney Chatbot
+      </mat-toolbar>
+  
+      <div class="messages">
+  
+        <ng-container *ngFor="let message of messages | async">
+  
+          <div class="message-row" [ngClass]="{ 'from': message.sentBy === 'bot',
+                                                'to':   message.sentBy === 'user' }">
+            <div class="message">
+              <span [innerHtml]="message.content | mdToHtml"></span>
+            </div>
+          </div>
+  
+        </ng-container>
+  
+      </div>
+  
+      <div class="send-message" (click)="messageInput.click()">
+        <mat-form-field floatPlaceholder="never">
+          <input matInput #messageInput [(ngModel)]="formValue" (keyup.enter)="sendMessage()" 
+            placeholder="Pergunte-me algo..." autofocus autocomplete="off">
+        </mat-form-field>
+      </div>
+  
+    </div>
+  </div>
